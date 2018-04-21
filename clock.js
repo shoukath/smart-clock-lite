@@ -1,5 +1,6 @@
 
 var weatherUndergroundApiKey = prompt("Please enter Weather Underground API Key", "");
+var zipCode = prompt("Please enter zipcode", "");
 
 var clock = {
 	getTime: function () {
@@ -44,7 +45,7 @@ function clickHandler() {
 document.querySelector('#upper-container').addEventListener('click', clickHandler, false);
 
 var getCurrentWeatherInfo = function () {
-	$.ajax('http://api.wunderground.com/api/' + weatherUndergroundApiKey + '/conditions/q/CA/60089.json?date=' + new Date().toISOString())
+	$.ajax('http://api.wunderground.com/api/' + weatherUndergroundApiKey + '/conditions/q/CA/' + zipCode + '.json?date=' + new Date().toISOString())
 		.then(function(response) {
 			$('#weather-container .current').html(Math.round(response.current_observation.temp_f) + '&deg;');
 		});
@@ -55,7 +56,7 @@ setInterval(getCurrentWeatherInfo, 1000 * 60 * 15);
 getCurrentWeatherInfo();
 
 var getDayForecastInfo = function () {
-	$.ajax('http://api.wunderground.com/api/' + weatherUndergroundApiKey + '/forecast10day/q/IL/60089.json?date=' + new Date().toISOString())
+	$.ajax('http://api.wunderground.com/api/' + weatherUndergroundApiKey + '/forecast10day/q/IL/' + zipCode + '.json?date=' + new Date().toISOString())
 		.then(function(response) {
 			var high = response.forecast.simpleforecast.forecastday[0].high.fahrenheit;
 			var low = response.forecast.simpleforecast.forecastday[0].low.fahrenheit;
@@ -74,7 +75,7 @@ var set10DayForecast  = function(data) {
 		var low = forecast.low.fahrenheit;
 		var day = forecast.date.weekday_short + ' ' + forecast.date.day;
 		var iconUrl = '<img src="' + forecast.icon_url + '" class="icon"/>';
-		if (index < 8) {
+		if (index < 9) {
 			$('.forecast-by-day table').append('<tr><td>' + day + ' </td><td>&nbsp;'+iconUrl+'</td><td>' + high + '&deg;/' + low + '&deg;</td></tr>');
 		}
 	})
@@ -86,7 +87,7 @@ getDayForecastInfo();
 
 var setHourlyForecast = function(called) {
 	if (moment().minutes() > 15 && !called) { return; }
-	var url = 'http://api.wunderground.com/api/' + weatherUndergroundApiKey + '/hourly/q/IL/60089.json?date=' + new Date().toISOString();
+	var url = 'http://api.wunderground.com/api/' + weatherUndergroundApiKey + '/hourly/q/IL/' + zipCode + '.json?date=' + new Date().toISOString();
 	$.ajax(url)
 		.then(function(response) {
 			$('.hourly table').empty();
