@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+	<link rel="stylesheet" type="text/css" href="clock.css">
+</head>
+<body>
+	<div id="upper-container">
+	  <div id="clock">
+	    <div class="content">
+	      <div class="day"></div>
+	      <div class="time"></div>
+	      <div class="date"></div>
+	    </div>
+	  </div>
+	  <div id="weather-container">
+	  	<div class="weather">
+		  	<div class="current">...</div>
+		  	<div class="today">...</div>
+	  	</div>
+	  	<div class="forecast-by-day">
+	  		<table></table>
+	  	</div>
+	  </div>
+	</div>
+	<div id="lower-container">
+		<div class="hourly">
+			<table></table>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+	<script src="clock.js"></script>
+</body>
+</html>

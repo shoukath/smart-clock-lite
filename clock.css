@@ -1,0 +1,103 @@
+body {
+	background: #000;
+	color: #FFF;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+#upper-container {
+	background: #000;
+	display: flex;
+	align-items: stretch;
+	height: 515px;
+	/*position: absolute;*/
+	width: 100%;
+}
+#clock {
+	width: 44%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.time {
+	font-size: 230px;
+	line-height: 250px;
+}
+.date {
+	font-size: 70px;
+	text-align: right;
+}
+.day {
+	font-size: 70px;
+	text-align: left;
+	padding-left: 25px;
+}
+
+#second-bedroom {
+	border-bottom: 1px solid white;
+    font-size: 70px;
+    text-align: center;
+    height: 70px;
+}
+
+
+#weather-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1; 
+	text-align: center;
+}
+
+#weather-container .inside {
+	font-size: 70px;
+}
+
+#weather-container .current {
+	font-size: 240px;
+	line-height: 200px;
+}
+
+.home-icon {
+	margin-right: 8px;
+    opacity: 0.5;
+}
+
+.status-icon {
+	padding: 0 10px;
+}
+
+.today {
+	font-size: 100px;
+}
+
+#weather-container .forecast-by-day {
+	font-size: 30px;
+	text-align: left;
+	line-height: 50px;
+	margin-top: 15px;
+}
+
+#weather-container .forecast-by-day .icon{
+	width: 60%;
+	vertical-align: sub;
+}
+
+#lower-container {
+	padding-bottom: 60px;
+}
+
+#lower-container .hourly table{
+	margin: 0 auto;
+	font-size: 45px;
+	text-align: center;
+}
+
+#lower-container .hourly table td{
+	padding: 0 12px
+}
+
+#lower-container .hourly table .temp td{
+	padding-top: 10px;
+	font-size: 55px;
+}
